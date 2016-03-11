@@ -5,7 +5,7 @@ namespace Domain
 	public interface IQuackService
 	{
 		IEnumerable<Quack> GetAll();
-		IEnumerable<Quack> GetReplies(Quack quack);
+		IEnumerable<Quack> GetReplies(int quackId);
 		void Add(Quack quack);
 	}
 }

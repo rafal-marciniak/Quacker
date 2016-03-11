@@ -12,7 +12,7 @@ namespace Data.Repositories
 
 		public override void Add(QuackEntity entity)
 		{
-			entity.CreationDate = DateTime.Now; // todo: replace it with default value getdate() by EF's migrations
+			entity.CreationDate = DateTime.Now; // todo: replace it wih column default value (getdate()) using EF's migrations
 
 			base.Add(entity);
 		}

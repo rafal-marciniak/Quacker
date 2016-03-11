@@ -32,12 +32,12 @@ namespace Domain
 
 		public IEnumerable<Quack> GetAll()
 		{
-			return _repository.Get().Select(q => FromQuackEntity(q));
+			return _repository.Get(x => !x.ParentId.HasValue).Select(q => FromQuackEntity(q));
 		}
 
-		public IEnumerable<Quack> GetReplies(Quack quack)
+		public IEnumerable<Quack> GetReplies(int quackId)
 		{
-			return _repository.Get(x => x.ParentId == quack.QuackId).Select(q => FromQuackEntity(q));
+			return _repository.Get(x => x.ParentId == quackId).Select(q => FromQuackEntity(q));
 		}
 
 		private bool IsValid(Quack quack)
