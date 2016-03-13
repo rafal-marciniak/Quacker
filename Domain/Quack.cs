@@ -13,5 +13,7 @@ namespace Domain
 		public DateTime CreationDate { get; internal set; }
 
 		public int? ParentQuackId { get; set; }
+
+		public int RepliesCount { get; set; }
 	}
 }

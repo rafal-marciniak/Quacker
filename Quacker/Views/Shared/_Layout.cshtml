@@ -3,38 +3,56 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - Quacker</title>
+	<title>Quacker</title>
+
+	<style type="text/css">
+		.navbar-text-simple {
+			margin-top: 0px !important;
+			margin-bottom: 0px !important;
+		}
+	</style>
 	@Styles.Render("~/Content/css")
+
 </head>
 <body ng-app="quackerApp">
-	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="LoginController as loginCtrl">
 		<div class="container">
 			<div class="navbar-header">
-				@Html.ActionLink("QUACKER", "Dashboard", "Quacker", new { area = "" }, new { @class = "navbar-brand" })
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#quackerNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<span class="navbar-text-simple navbar-text" style="font-size: 20px; font-weight: bold;"><img src="~/Images/duck-icon48.png" />Quacker</span>
 			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="#/login">Login</a></li>
-					<li><a href="#/dashboard">Dashboard</a></li>
-					<li></li>
+			<div class="navbar-collapse collapse" id="quackerNavbar">
+				@*<ul class="nav navbar-nav">
+					<li><a href="/#/login">Login</a></li>
+					<li><a href="/#/dashboard">Dashboard</a></li>
+				</ul>*@
+				<ul class="nav navbar-nav navbar-right">
+					<li ng-show="loginCtrl.hasUserName()"><a><span class="glyphicon glyphicon-user"></span> Welcome, {{loginCtrl.name()}}!</a></li>
+					<li><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> {{loginCtrl.hasUserName() ? 'Change your name' : 'Tell us your name'}}</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
-	<div class="container body-content" ng-view>
-		@RenderBody()
-		
-	</div>
-	<hr />
 	<footer>
-		<p>&copy; @DateTime.Now.Year - Quacker</p>
+		<div class="navbar navbar-inverse navbar-fixed-bottom" style="min-height: 10px; padding-left: 10px">
+			<p>&copy; @DateTime.Now.Year - Quacker</p>
+		</div>
 	</footer>
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/angular")
-	@Scripts.Render("~/bundles/bootstrap")
-	@Scripts.Render("~/bundles/quacker")
-	@RenderSection("scripts", required: false)
+	<div class="container body-content" ng-view>
+		@RenderBody()
+	</div>
+
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/angular")
+		@Scripts.Render("~/bundles/bootstrap")
+		@Scripts.Render("~/bundles/quacker")
+		@RenderSection("scripts", required: false)
 </body>
 </html>

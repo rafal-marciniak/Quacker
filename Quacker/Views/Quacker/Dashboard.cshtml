@@ -1,4 +1,24 @@
 ﻿<div class="row">
-	<p>Dashboard CSHTML</p>
-	<p>{{dashboardCtrl.message}}</p>
+	<div class="col-md-3" />
+	<div class="col-md-6" ng-controller="LoginController as loginCtrl" >
+		<quack-form ng-show="loginCtrl.hasUserName()" on-post="dashboardCtrl.postQuack(quack)"></quack-form>
+		<div class="panel-group">
+			<div class="panel panel-default" ng-repeat="quack in dashboardCtrl.quacks">
+				<div class="panel-heading">
+					{{quack.Content}}
+					<br />
+					<button ng-click="dashboardCtrl.showReplies(quack)">Show replies</button> <!--data-toggle="collapse" data-target="#collapse{{quack.QuackId}}"--> <!--This doesn't hide for some reason. Handled manually in controller-->
+				</div>
+				<div id="collapse{{quack.QuackId}}" class="panel-collapse collapse">
+					<ul class="list-group" ng-repeat="reply in quack.Replies">
+						<li class="list-group-item bubble">{{reply.Content}}</li>
+					</ul>
+				</div>
+				<div class="panel-footer" ng-show="loginCtrl.hasUserName()">
+					<quack-form parent-quack-id="quack.QuackId" on-post="dashboardCtrl.postQuack(quack)"></quack-form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3" />
 </div>

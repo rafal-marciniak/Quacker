@@ -1,5 +1,6 @@
 ﻿using Domain;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Quacker.Controllers
@@ -18,7 +19,7 @@ namespace Quacker.Controllers
 			return View();
 		}
 
-		public JsonResult GetQuacks(int? id = null)
+		public JsonResult Get(int? id = null)
 		{
 			IEnumerable<Quack> quacks;
 
@@ -34,8 +35,14 @@ namespace Quacker.Controllers
 			return new JsonResult
 			{
 				JsonRequestBehavior = JsonRequestBehavior.AllowGet, // temporarily?
-				Data = quacks
+				Data = quacks.OrderByDescending(q => q.CreationDate)
 			};
+		}
+
+		public ActionResult Add(Quack quack)
+		{
+			var result = _service.Add(quack);
+			return new JsonResult { Data = result };
 		}
 	}
 }

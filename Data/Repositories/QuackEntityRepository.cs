@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Data.Repositories
 {
@@ -10,11 +13,18 @@ namespace Data.Repositories
 			_context.Configuration.LazyLoadingEnabled = false;
 		}
 
-		public override void Add(QuackEntity entity)
+		public override IQueryable<QuackEntity> Get(Expression<Func<QuackEntity, bool>> predicate = null)
+		{
+			var query = base.Get(predicate);
+			query = query.Include("Replies");
+
+			return query;
+		}
+
+		public override QuackEntity Add(QuackEntity entity)
 		{
 			entity.CreationDate = DateTime.Now; // todo: replace it wih column default value (getdate()) using EF's migrations
-
-			base.Add(entity);
+			return base.Add(entity);
 		}
 	}
 }

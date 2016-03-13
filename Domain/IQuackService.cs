@@ -6,6 +6,6 @@ namespace Domain
 	{
 		IEnumerable<Quack> GetAll();
 		IEnumerable<Quack> GetReplies(int quackId);
-		void Add(Quack quack);
+		Quack Add(Quack quack);
 	}
 }

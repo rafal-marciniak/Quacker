@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,13 +18,15 @@ namespace Data.Repositories
 
 		#region IRepository<TEntity> implementation
 
-		public virtual void Add(TEntity entity)
+		public virtual TEntity Add(TEntity entity)
 		{
-			TakeSet().Add(entity);
+			var result = TakeSet().Add(entity);
 			SaveChanges();
+
+			return result;
 		}
 
-		public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> predicate = null)
+		public virtual IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> predicate = null)
 		{
 			IQueryable<TEntity> query = TakeSet();
 
@@ -69,14 +70,14 @@ namespace Data.Repositories
 
 		#endregion
 
-		#region Private methods
+		#region Protected methods
 
-		private DbSet<TEntity> TakeSet()
+		protected DbSet<TEntity> TakeSet()
 		{
 			return _context.Set<TEntity>();
 		}
 
-		private void SaveChanges()
+		protected void SaveChanges()
 		{
 			_context.SaveChanges();
 		}

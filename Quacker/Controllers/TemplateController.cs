@@ -16,5 +16,15 @@ namespace Quacker.Controllers
 		{
 			return PartialView("~/Views/Quacker/Dashboard.cshtml");
 		}
+
+		public ActionResult QuackForm()
+		{
+			return PartialView("~/Views/Quacker/QuackForm.cshtml");
+		}
+
+		public ActionResult Error404()
+		{
+			return PartialView("~/Views/Shared/Error404.cshtml");
+		}
 	}
 }
