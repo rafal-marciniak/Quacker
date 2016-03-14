@@ -54,7 +54,7 @@ namespace Domain
 		private bool IsValid(Quack quack)
 		{
 			return !string.IsNullOrEmpty(quack.Content) && !string.IsNullOrWhiteSpace(quack.Content) && quack.Content.Length <= 250
-				&& !string.IsNullOrEmpty(quack.AuthorName) && !string.IsNullOrWhiteSpace(quack.AuthorName) && quack.Content.Length <= 25;
+				&& !string.IsNullOrEmpty(quack.AuthorName) && !string.IsNullOrWhiteSpace(quack.AuthorName) && quack.AuthorName.Length <= 25;
 		}
 
 		private QuackEntity ToQuackEntity(Quack quack)

@@ -5,6 +5,12 @@ namespace Data
 {
 	public class QuackEntityContext : DbContext
 	{
+		public QuackEntityContext()
+			:base("Quacker")
+		{
+
+		}
+
 		public DbSet<QuackEntity> Quacks { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)

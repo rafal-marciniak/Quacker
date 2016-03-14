@@ -32,18 +32,18 @@
 					<li><a href="/#/dashboard">Dashboard</a></li>
 				</ul>*@
 				<ul class="nav navbar-nav navbar-right">
-					<li ng-show="loginCtrl.hasUserName()"><a><span class="glyphicon glyphicon-user"></span> Welcome, {{loginCtrl.name()}}!</a></li>
-					<li><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> {{loginCtrl.hasUserName() ? 'Change your name' : 'Tell us your name'}}</a></li>
+					<li ng-show="loginCtrl.hasUserName()"><a href="/#/login"><span class="glyphicon glyphicon-user"></span> Welcome, {{loginCtrl.name()}}!</a></li>
+					@*<li><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> {{loginCtrl.hasUserName() ? 'Change your name' : 'Tell us your name'}}</a></li>*@
 				</ul>
 			</div>
 		</div>
 	</div>
 
-	<footer>
+	@*<footer>
 		<div class="navbar navbar-inverse navbar-fixed-bottom" style="min-height: 10px; padding-left: 10px">
 			<p>&copy; @DateTime.Now.Year - Quacker</p>
 		</div>
-	</footer>
+	</footer>*@
 
 	<div class="container body-content" ng-view>
 		@RenderBody()

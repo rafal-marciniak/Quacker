@@ -25,17 +25,17 @@ namespace Quacker.Controllers
 
 			if (id.HasValue)
 			{
-				quacks = _service.GetReplies(id.Value);
+				quacks = _service.GetReplies(id.Value).OrderBy(q => q.CreationDate);
 			}
 			else
 			{
-				quacks = _service.GetAll();
+				quacks = _service.GetAll().OrderByDescending(q => q.CreationDate);
 			}
 
 			return new JsonResult
 			{
 				JsonRequestBehavior = JsonRequestBehavior.AllowGet, // temporarily?
-				Data = quacks.OrderByDescending(q => q.CreationDate)
+				Data = quacks
 			};
 		}
 
