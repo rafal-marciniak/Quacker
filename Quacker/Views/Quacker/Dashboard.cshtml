@@ -24,7 +24,7 @@
 					</ul>
 				</div>
 				<div class="panel-footer" ng-show="loginCtrl.hasUserName()">
-					<quack-form label-text="Reply" parent-quack-id="quack.QuackId" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
+					<quack-form label-text="Reply" parent-quack-id="{{quack.QuackId}}" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
 				</div>
 			</div>
 		</div>
