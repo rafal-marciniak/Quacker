@@ -2,11 +2,9 @@
 	angular.module('quackerApp').controller('DashboardController', ['constants', '$scope', '$http', '$cookies', function (constants, $scope, $http, $cookies) {
 		var _this = this;
 		_this.quacks = [];
-		_this.quacksNotLoaded = true;
 
 		_this.loadQuacks = function () {
 			$http.get('/Quacker/Get').then(function (response) {
-				_this.quacksNotLoaded = false;
 				_this.quacks = response.data;
 			}, _this.handleError);
 		}

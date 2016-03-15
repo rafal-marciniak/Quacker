@@ -1,14 +1,16 @@
 ﻿<div class="row">
 	<div class="col-md-3"></div>
 	<div class="col-md-6" ng-controller="LoginController as loginCtrl" >
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped active" role="progressbar"
-				 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+		<quack-form label-text="Write" ng-show="loginCtrl.hasUserName()" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
+		
+		<div class="progress progress-striped active">
+			<div class="progress-bar" role="progressbar"
+				 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+				<span>Loading...</span>
 			</div>
 		</div>
+			
 		
-		
-		<quack-form label-text="Write" ng-show="loginCtrl.hasUserName()" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
 		<div class="panel-group">
 			<div class="panel panel-default" ng-repeat="quack in dashboardCtrl.quacks">
 				<div class="panel-heading">
