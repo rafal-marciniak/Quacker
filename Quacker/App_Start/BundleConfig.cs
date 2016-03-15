@@ -32,6 +32,8 @@ namespace Quacker
 				"~/Scripts/quackerLoginController.js",
 				"~/Scripts/quackerDashboardController.js",
 				"~/Scripts/quackerDirectives.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/moment").Include("~/Scripts/moment.js"));
 		}
 	}
 }

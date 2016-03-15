@@ -53,6 +53,10 @@
 			window.alert('An error occured while processing your request'); // temporarily
 		};
 
+		_this.getQuackCreationRelativeDate = function (quack) {
+			return moment(quack.CreationDate).fromNow();
+		};
+
 		_this.loadQuacks(); // load quacks at start
 	}]);
 })();

@@ -1,24 +1,96 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+	padding-top: 100px;
+	padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
+	white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+/* Set width on the form input elements since they're 100% wide by default 
 input,
 select,
 textarea {
-    max-width: 280px;
+	max-width: 280px;
+}*/
+
+.navbar-text-simple {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.duck-crop {
+	width: 131px;
+	height: 176px;
+	overflow: hidden;
+	margin-left:auto;
+}
+
+.duck-crop img {
+	margin-top: -39px;
+	margin-right: -63px;
+	display: block;
+	margin-left: -62px;
+}
+
+.bubble {
+	position: relative;
+	width: 190px;
+	height: 90px;
+	padding: 5px;
+	background: #FFFFFF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: #7F7F7F solid 1px;
+}
+
+.bubble:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 12px 0 12px 15px;
+	border-color: transparent #FFFFFF;
+	display: block;
+	width: 0;
+	z-index: 1;
+	right: -15px;
+	top: 27px;
+}
+
+.bubble:before {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 12px 0 12px 15px;
+	border-color: transparent #7F7F7F;
+	display: block;
+	width: 0;
+	z-index: 0;
+	right: -16px;
+	top: 27px;
+}
+
+.quack-form {
+	position: relative;
+}
+
+.quack-form textarea {
+	resize: none;
+	padding-right: 90px;
+}
+
+.quack-form input[type=submit] {
+	position: absolute;
+	top: 10px;
+	right: 24px;
 }

@@ -1,9 +1,6 @@
-﻿<form name="{{formName}}" novalidate>
-	<div class="form-group"> <!--ng-class="{ 'has-error': {{formName}}.content.$dirty && {{formName}}.content.$invalid }">-->
-		@*<label for="content" class="control-label">{{labelText}}</label>*@
-		<textarea class="form-control" name="content" maxlength="250" ng-required="true" ng-maxlength="250" ng-model="quack.Content" />
-	</div>
+﻿<form name="{{formName}}" class="quack-form"  novalidate>
 	<div class="form-group">
-		<input type="submit" class="btn btn-primary btn-default" value="{{labelText}}" ng-disabled="{{formName}}.$invalid" ng-click="onPost({quack: quack, callback: onPostCallback})" />
+		<textarea class="form-control" name="content" maxlength="500" rows="2" ng-required="true" ng-maxlength="500" placeholder="Your message goes here" ng-model="quack.Content" />
+		<input type="submit" class="btn btn-primary" value="{{labelText}}" ng-disabled="{{formName}}.$invalid" ng-click="onPost({quack: quack, callback: onPostCallback})" />
 	</div>
 </form>

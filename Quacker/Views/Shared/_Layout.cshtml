@@ -4,13 +4,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quacker</title>
-
-	<style type="text/css">
-		.navbar-text-simple {
-			margin-top: 0px !important;
-			margin-bottom: 0px !important;
-		}
-	</style>
 	@Styles.Render("~/Content/css")
 
 </head>
@@ -27,13 +20,11 @@
 				<span class="navbar-text-simple navbar-text" style="font-size: 20px; font-weight: bold;"><img src="~/Images/duck-icon48.png" />Quacker</span>
 			</div>
 			<div class="navbar-collapse collapse" id="quackerNavbar">
-				@*<ul class="nav navbar-nav">
-					<li><a href="/#/login">Login</a></li>
-					<li><a href="/#/dashboard">Dashboard</a></li>
-				</ul>*@
 				<ul class="nav navbar-nav navbar-right">
-					<li ng-show="loginCtrl.hasUserName()"><a href="/#/login"><span class="glyphicon glyphicon-user"></span> Welcome, {{loginCtrl.name()}}!</a></li>
-					@*<li><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> {{loginCtrl.hasUserName() ? 'Change your name' : 'Tell us your name'}}</a></li>*@
+					<li>
+						<a href="/#/login" ng-show="loginCtrl.hasUserName()"><span class="glyphicon glyphicon-user"></span> Hi, {{loginCtrl.name()}}!</a>
+						<a href="/#/login" ng-hide="loginCtrl.hasUserName()"><span class="glyphicon glyphicon-log-in"></span> Please tell us your name</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -52,6 +43,7 @@
 		@Scripts.Render("~/bundles/jquery")
 		@Scripts.Render("~/bundles/angular")
 		@Scripts.Render("~/bundles/bootstrap")
+		@Scripts.Render("~/bundles/moment")
 		@Scripts.Render("~/bundles/quacker")
 		@RenderSection("scripts", required: false)
 </body>
