@@ -22,6 +22,11 @@ namespace Quacker.Controllers
 			return PartialView("~/Views/Quacker/QuackForm.cshtml");
 		}
 
+		public ActionResult QuackDetails()
+		{
+			return PartialView("~/Views/Quacker/QuackDetails.cshtml");
+		}
+
 		public ActionResult Error404()
 		{
 			return PartialView("~/Views/Shared/Error404.cshtml");

@@ -1,10 +1,12 @@
 ﻿(function () {
 	angular.module('quackerApp').controller('DashboardController', ['constants', '$scope', '$http', '$cookies', function (constants, $scope, $http, $cookies) {
 		var _this = this;
+		_this.ready = false;
 		_this.quacks = [];
 
 		_this.loadQuacks = function () {
 			$http.get('/Quacker/Get').then(function (response) {
+				_this.ready = true;
 				_this.quacks = response.data;
 			}, _this.handleError);
 		}
@@ -15,6 +17,10 @@
 					quack.Replies = response.data;
 				}, _this.handleError);
 			}
+		};
+
+		_this.hasQuacks = function () {
+			return _this.quacks.length > 0;
 		};
 
 		_this.hasReplies = function (quack) {
@@ -33,10 +39,11 @@
 						var parentQuack = $.grep(_this.quacks, function (quack, index) { return quack.QuackId == serverQuack.ParentQuackId; })[0];
 
 						if (parentQuack) {
-							if (parentQuack.Replies) {
-								parentQuack.Replies.push(serverQuack);
+							if (!parentQuack.Replies) {
+								parentQuack.Replies = [];
 							}
 
+							parentQuack.Replies.push(serverQuack);
 							parentQuack.RepliesCount++;
 						}
 					}
@@ -51,10 +58,6 @@
 
 		_this.handleError = function (response) {
 			window.alert('An error occured while processing your request'); // temporarily
-		};
-
-		_this.getQuackCreationRelativeDate = function (quack) {
-			return moment(quack.CreationDate).fromNow();
 		};
 
 		_this.loadQuacks(); // load quacks at start

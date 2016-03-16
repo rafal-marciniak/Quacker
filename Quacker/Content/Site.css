@@ -16,13 +16,6 @@
 	white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default 
-input,
-select,
-textarea {
-	max-width: 280px;
-}*/
-
 .navbar-text-simple {
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
@@ -87,10 +80,33 @@ textarea {
 .quack-form textarea {
 	resize: none;
 	padding-right: 90px;
+	min-height: 54px;
 }
 
 .quack-form input[type=submit] {
 	position: absolute;
-	top: 10px;
-	right: 24px;
+	top: 12px;
+	right: 20px;
+}
+.quack-details {
+	text-align: justify;
+}
+
+.quack-details hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.quack-details .content {
+	white-space:pre-wrap;
+}
+
+li.reply {
+	border: none;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+li.reply :hover {
+	background-color: #f5f5f5;
 }

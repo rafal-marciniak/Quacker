@@ -1,6 +1,5 @@
-(function(){
+(function () {
 	angular.module('quackerDirectives', [])
-
 		.directive('quackForm', function () {
 			return {
 				restrict: 'E',
@@ -19,6 +18,21 @@
 					$scope.createQuack();
 					$scope.onPostCallback = function () {
 						$scope.createQuack();
+					};
+				}]
+			};
+		})
+
+		.directive('quackDetails', function () {
+			return {
+				restrict: 'E',
+				scope: {
+					quack: '='
+				},
+				templateUrl: '/Template/QuackDetails',
+				controller: ['$scope', function ($scope) {
+					$scope.getQuackCreationRelativeDate = function () {
+						return moment($scope.quack.CreationDate).fromNow();
 					};
 				}]
 			};
