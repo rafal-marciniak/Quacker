@@ -23,7 +23,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<a href="/#/login" ng-show="loginCtrl.hasUserName()"><span class="glyphicon glyphicon-user"></span> Hi, {{loginCtrl.name()}}!</a>
-						<a href="/#/login" ng-hide="loginCtrl.hasUserName()"><span class="glyphicon glyphicon-log-in"></span> Please tell us your name</a>
+						<a href="/#/login" ng-show="!loginCtrl.hasUserName()"><span class="glyphicon glyphicon-log-in"></span> Please tell me your name</a>
 					</li>
 				</ul>
 			</div>

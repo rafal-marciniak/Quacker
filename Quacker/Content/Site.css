@@ -36,15 +36,17 @@
 }
 
 .bubble {
-	position: relative;
-	width: 190px;
-	height: 90px;
+	position: absolute;
+	width: 130px;
+	height: 70px;
+	top: 40px;
+	right: 162px;
 	padding: 5px;
 	background: #FFFFFF;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	border: #7F7F7F solid 1px;
+	border: #DDDDDD solid 1px;
 }
 
 .bubble:after {
@@ -65,7 +67,7 @@
 	position: absolute;
 	border-style: solid;
 	border-width: 12px 0 12px 15px;
-	border-color: transparent #7F7F7F;
+	border-color: transparent #DDDDDD;
 	display: block;
 	width: 0;
 	z-index: 0;
@@ -98,7 +100,8 @@
 }
 
 .quack-details .content {
-	white-space:pre-wrap;
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
 li.reply {
