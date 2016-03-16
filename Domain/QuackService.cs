@@ -5,15 +5,40 @@ using System.Linq;
 
 namespace Domain
 {
+	/// <summary>
+	/// A service providing operations on quacks
+	/// </summary>
 	public class QuackService : IQuackService
 	{
+		#region Private members
+
+		/// <summary>
+		/// Quack entities repository
+		/// </summary>
 		private IEntityRepository<QuackEntity> _repository;
 
+		#endregion
+
+		#region Constructors
+
+		/// <summary>
+		/// A service providing operations on quacks
+		/// </summary>
+		/// <param name="repository"></param>
 		public QuackService(IEntityRepository<QuackEntity> repository)
 		{
 			_repository = repository;
 		}
 
+		#endregion
+
+		#region IQuackService implementation
+
+		/// <summary>
+		/// Adds quack
+		/// </summary>
+		/// <param name="quack">Quack instance to be added</param>
+		/// <returns></returns>
 		public Quack Add(Quack quack)
 		{
 			if (quack != null && IsValid(quack))
@@ -25,6 +50,10 @@ namespace Domain
 			return quack;
 		}
 
+		/// <summary>
+		/// Returns all quacks that are not replies to other quacks
+		/// </summary>
+		/// <returns></returns>
 		public IEnumerable<Quack> GetAll()
 		{
 			return _repository.Get(x => !x.ParentId.HasValue).Select(q => new Quack
@@ -38,6 +67,11 @@ namespace Domain
 			});
 		}
 
+		/// <summary>
+		/// Returns replies for given quack identifier
+		/// </summary>
+		/// <param name="quackId">Quack's identitfier</param>
+		/// <returns></returns>
 		public IEnumerable<Quack> GetReplies(int quackId)
 		{
 			return _repository.Get(x => x.ParentId == quackId).Select(q => new Quack
@@ -50,6 +84,10 @@ namespace Domain
 				RepliesCount = q.Replies.Count
 			});
 		}
+
+		#endregion
+
+		#region Privat members
 
 		private bool IsValid(Quack quack)
 		{
@@ -81,5 +119,7 @@ namespace Domain
 				RepliesCount = quackEntity.Replies != null ? quackEntity.Replies.Count : 0
 			};
 		}
+
+		#endregion
 	}
 }

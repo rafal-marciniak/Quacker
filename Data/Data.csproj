@@ -52,7 +52,7 @@
     <Compile Include="IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuackEntity.cs" />
-    <Compile Include="QuackEntityContext.cs" />
+    <Compile Include="QuackerContext.cs" />
     <Compile Include="Repositories\GenericEntityRepository.cs" />
     <Compile Include="Repositories\IEntityRepository.cs" />
     <Compile Include="Repositories\QuackEntityRepository.cs" />

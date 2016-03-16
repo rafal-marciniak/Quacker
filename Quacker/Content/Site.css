@@ -16,11 +16,23 @@
 	white-space: normal;
 }
 
+/* Layout */
 .navbar-text-simple {
 	margin-top: 0px !important;
 	margin-bottom: 0px !important;
 }
 
+.navbar-logo {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Login */
+.login {
+	margin-top: 100px
+}
+
+/* Duck image*/
 .duck-crop {
 	width: 131px;
 	height: 176px;
@@ -35,7 +47,8 @@
 	margin-left: -62px;
 }
 
-.bubble {
+/* Speech bubble*/
+.speech-bubble {
 	position: absolute;
 	width: 130px;
 	height: 70px;
@@ -49,7 +62,7 @@
 	border: #DDDDDD solid 1px;
 }
 
-.bubble:after {
+.speech-bubble:after {
 	content: '';
 	position: absolute;
 	border-style: solid;
@@ -62,7 +75,7 @@
 	top: 27px;
 }
 
-.bubble:before {
+.speech-bubble:before {
 	content: '';
 	position: absolute;
 	border-style: solid;
@@ -75,6 +88,7 @@
 	top: 27px;
 }
 
+/* Quack form */
 .quack-form {
 	position: relative;
 }
@@ -90,6 +104,12 @@
 	top: 12px;
 	right: 20px;
 }
+
+/* Quack details */
+.quack-panel {
+	padding: 10px;
+}
+
 .quack-details {
 	text-align: justify;
 }
@@ -102,6 +122,11 @@
 .quack-details .content {
 	white-space: pre-wrap;
 	word-break: break-all;
+}
+
+/* Reply */
+.reply-btn {
+	margin-top: 10px;
 }
 
 li.reply {

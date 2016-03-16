@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Quacker</title>
 	@Styles.Render("~/Content/css")
-
 </head>
 <body ng-app="quackerApp">
 	<div class="navbar navbar-inverse navbar-fixed-top" ng-controller="LoginController as loginCtrl">
@@ -17,7 +16,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				
-				<span class="navbar-text-simple navbar-text" style="font-size: 20px; font-weight: bold;"><img src="~/Images/duck-icon48.png" />Quacker</span>
+				<span class="navbar-text-simple navbar-text navbar-logo"><img src="~/Images/duck-icon48.png" />Quacker</span>
 			</div>
 			<div class="navbar-collapse collapse" id="quackerNavbar">
 				<ul class="nav navbar-nav navbar-right">
@@ -29,22 +28,15 @@
 			</div>
 		</div>
 	</div>
-
-	@*<footer>
-		<div class="navbar navbar-inverse navbar-fixed-bottom" style="min-height: 10px; padding-left: 10px">
-			<p>&copy; @DateTime.Now.Year - Quacker</p>
-		</div>
-	</footer>*@
-
 	<div class="container body-content" ng-view>
 		@RenderBody()
 	</div>
 
-		@Scripts.Render("~/bundles/jquery")
-		@Scripts.Render("~/bundles/angular")
-		@Scripts.Render("~/bundles/bootstrap")
-		@Scripts.Render("~/bundles/moment")
-		@Scripts.Render("~/bundles/quacker")
-		@RenderSection("scripts", required: false)
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/angular")
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/bundles/moment")
+	@Scripts.Render("~/bundles/quacker")
+	@RenderSection("scripts", required: false)
 </body>
 </html>

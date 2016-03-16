@@ -3,15 +3,34 @@ using System.Data.Entity;
 
 namespace Data
 {
-	public class QuackEntityContext : DbContext
+	/// <summary>
+	/// DbContext for Quacker application
+	/// </summary>
+	public class QuackerContext : DbContext
 	{
-		public QuackEntityContext()
-			:base("Quacker")
+		#region Constructors
+
+		/// <summary>
+		/// DbContext for Quacker application
+		/// </summary>
+		public QuackerContext()
+			: base("Quacker")
 		{
 
 		}
 
+		#endregion
+
+		#region Properties
+
+		/// <summary>
+		/// Set of quacks
+		/// </summary>
 		public DbSet<QuackEntity> Quacks { get; set; }
+
+		#endregion
+
+		#region Override
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -45,5 +64,7 @@ namespace Data
 				.HasForeignKey(x => x.ParentId)
 				.WillCascadeOnDelete(false);
 		}
+
+		#endregion
 	}
 }

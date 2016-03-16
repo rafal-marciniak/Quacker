@@ -4,8 +4,7 @@
 		<quack-form label-text="Write" ng-show="loginCtrl.hasUserName()" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
 		
 		<div class="progress progress-striped active" ng-show="!dashboardCtrl.ready">
-			<div class="progress-bar" role="progressbar"
-				 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+			<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
 				<span>Loading...</span>
 			</div>
 		</div>
@@ -14,22 +13,17 @@
 			<div class="alert alert-warning" role="alert" ng-show="!dashboardCtrl.hasQuacks()">No quacks to display here.</div>
 			<div class="panel-group">
 				<div class="panel panel-default" ng-repeat="quack in dashboardCtrl.quacks">
-					<div style="padding: 10px">
-						<quack-details quack="quack"></quack-details>
-						<div style="margin-top: 10px">
-							@* For quack without replies *@
-							<button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#collapse{{quack.QuackId}}"
-									ng-show="loginCtrl.hasUserName() && !dashboardCtrl.hasReplies(quack)">
-								Reply
-							</button>
-
-							@* For quack with replies *@
-							<button class="btn btn-default btn-sm" data-toggle="collapse" data-target="#collapse{{quack.QuackId}}"
-									ng-show="dashboardCtrl.hasReplies(quack)"
-									ng-click="dashboardCtrl.loadReplies(quack)">
-								Replies <span class="badge">{{quack.RepliesCount}}</span>
-							</button>
-						</div>
+					<div class="quack-panel">
+						<quack-details quack="quack"></quack-details>			
+						<button class="btn btn-default btn-sm reply-btn" data-toggle="collapse" data-target="#collapse{{quack.QuackId}}"
+								ng-show="loginCtrl.hasUserName() && !dashboardCtrl.hasReplies(quack)">
+							Reply
+						</button> @* For quack without replies *@
+						<button class="btn btn-default btn-sm reply-btn" data-toggle="collapse" data-target="#collapse{{quack.QuackId}}"
+								ng-show="dashboardCtrl.hasReplies(quack)"
+								ng-click="dashboardCtrl.loadReplies(quack)">
+							Replies <span class="badge">{{quack.RepliesCount}}</span>
+						</button> @* For quack with replies *@
 					</div>
 					<div id="collapse{{quack.QuackId}}" class="panel-collapse collapse">
 						<ul class="list-group">
@@ -40,7 +34,7 @@
 							</li>
 						</ul>
 						<div class="panel-footer" ng-show="loginCtrl.hasUserName()">
-							<quack-form label-text="Reply" parent-quack-id="{{quack.QuackId}}" on-post="dashboardCtrl.postQuack(quack, callback)" /></quack-form>
+							<quack-form label-text="Reply" parent-quack-id="{{quack.QuackId}}" on-post="dashboardCtrl.postQuack(quack, callback)"></quack-form>
 						</div>
 					</div>
 				</div>
