@@ -230,6 +230,7 @@
     <Content Include="Views\Identity\Login.cshtml" />
     <None Include="Views\Quacker\Dashboard.cshtml" />
     <Content Include="Views\Quacker\QuackForm.cshtml" />
+    <Content Include="Views\Quacker\QuackDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
