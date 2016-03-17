@@ -8,15 +8,15 @@ Running from Visual Studio 2013 is officially not supported, but should be possi
 
 
 # FAQ:
-1. My .NET Framework version is older than required:
-Visual Studio will offer downgrading project target version. I choosen, language version manual downgrade is required and can be done in Web.config, in copmpilerOptions parameter:
+1. My .NET Framework version is older than required.
+In such case, Visual Studio will offer downgrading project target version. If chosen, langversion change is required and can be done in Web.config, in copmpilerOptions parameter:
 ```
 <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CSharp.CSharpCodeProvider, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" warningLevel="4" compilerOptions="/langversion:5 /nowarn:1659;1699;1701">
           <providerOption name="CompilerVersion" value="v4.0" />
 </compiler>
 ```
 
-2. My localdb instance has different name
+2. My localdb instance has different name.
 You can change localdb instance name in Web.config and App.config files, in the parameters section:
 ```
   <entityFramework>
